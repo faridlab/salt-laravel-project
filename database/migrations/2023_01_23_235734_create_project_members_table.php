@@ -18,6 +18,7 @@ return new class extends Migration
 
             $table->foreignUuid('project_id')->references('id')->on('projects');
             $table->foreignUuid('user_id')->references('id')->on('users');
+            $table->float('hourly_rate', 12, 2)->default(0.0);
 
             $table->timestamps();
             $table->softDeletes();
