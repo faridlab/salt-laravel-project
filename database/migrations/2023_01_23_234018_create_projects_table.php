@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('code_number', 6)->comment('use minimal 3 and max 6 chars');
             $table->string('name');
-            $table->text('description')->nullable()->comment('Project Summary');
+            $table->text('description')->comment('Project Summary');
 
             $table->date('start_date');
             $table->date('end_date')->nullable();
@@ -28,14 +28,14 @@ return new class extends Migration
             $table->foreignUuid('client_id')->references('id')->on('contacts')->comment('Client PIC');
 
 
-            $table->float('value_contract', 12, 2);
+            $table->float('value_project', 12, 2);
             $table->char('base_currency', 3)->default('USD')->comment('USD, JPY, EUR, IDR');
             $table->char('exchange_currency', 3)->default('USD')->comment('USD, JPY, EUR, IDR');
             $table->float('exchange_value', 12, 2)->default(0);
             $table->float('hours_estimate', 12, 2)->default(0);
 
             $table->text('note')->nullable();
-            $table->enum('status', ['draft', 'active'])->default('active');
+            $table->enum('status', ['draft', 'in-progress', 'not-started', 'on-hold', 'canceled', 'finished'])->default('draft');
             $table->json('data')->nullable();
 
             $table->timestamps();
