@@ -13,12 +13,12 @@
     "php": "^8.0.2",
     "doctrine/dbal": "^3.3",
     "faridlab/laravel-search-query": "^9",
-    "faridlab/salt-laravel": "dev-main",
-    "faridlab/salt-laravel-organization": "dev-main",
-    "faridlab/salt-laravel-contacts": "dev-main",
-    "faridlab/salt-laravel-file": "dev-main",
-    "faridlab/salt-laravel-comments": "dev-main",
-    "faridlab/salt-laravel-employee": "dev-main"
+    "faridlab/salt-laravel": "^9",
+    "faridlab/salt-laravel-organization": "^9",
+    "faridlab/salt-laravel-contacts": "^9",
+    "faridlab/salt-laravel-file": "^9",
+    "faridlab/salt-laravel-comments": "^9",
+    "faridlab/salt-laravel-employee": "^9"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.0",
@@ -46,31 +46,5 @@
   "scripts": {
     "test": "vendor/bin/phpunit -c ./phpunit.xml --colors=always",
     "analysis": "vendor/bin/phpstan analyse"
-  },
-  "repositories": [
-      {
-          "type": "path",
-          "url": "~/Unicorns/startapp/frameworks/salt-laravel-core"
-      },
-      {
-          "type": "path",
-          "url": "~/Unicorns/startapp/frameworks/salt-laravel-file"
-      },
-      {
-          "type": "path",
-          "url": "~/Unicorns/startapp/frameworks/salt-laravel-comments"
-      },
-      {
-          "type": "path",
-          "url": "~/Unicorns/startapp/frameworks/salt-laravel-contacts"
-      },
-      {
-          "type": "path",
-          "url": "~/Unicorns/startapp/frameworks/salt-laravel-organization"
-      },
-      {
-          "type": "path",
-          "url": "~/Unicorns/startapp/frameworks/salt-laravel-employee"
-      }
-  ]
+  }
 }
