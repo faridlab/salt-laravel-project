@@ -40,38 +40,6 @@ class CategoriesController extends Controller
     protected $modelNamespace = 'SaltProject';
 
     /**
-     * Create a new AuthController instance.
-     *
-     * @return void
-     */
-    public function __construct(Request $request, Settings $model, ResponseService $responder) {
-        try {
-            $this->responder = $responder;
-            $this->segment = 'types';
-            if($this->checkIfModelExist(Str::studly($this->segment), $this->modelNamespace)) {
-                $this->model = $this->getModelClass(Str::studly($this->segment), $this->modelNamespace);
-            } else {
-                if($model->checkTableExists($this->segment)) {
-                    $this->model = $model;
-                    $this->model->setTable($this->segment);
-                }
-            }
-            if($this->model) {
-                $this->responder->set('collection', $this->model->getTable());
-                // SET default Authentication
-                $this->middleware('auth:api', ['only' => $this->model->getAuthenticatedRoutes()]);
-            }
-
-            if(is_null($this->table_name)) $this->table_name = $this->segment;
-            $this->segments = $request->segments();
-        } catch (\Exception $e) {
-            $this->responder->set('message', $e->getMessage());
-            $this->responder->setStatus(500, 'Internal server error.');
-            return $this->responder->response();
-        }
-    }
-
-    /**
      * @OA\Get(
      *      path="/api/v1/countries",
      *      @OA\ExternalDocumentation(
