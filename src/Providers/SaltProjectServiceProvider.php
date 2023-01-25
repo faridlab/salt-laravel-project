@@ -18,9 +18,9 @@ class SaltProjectServiceProvider extends ServiceProvider
          *
          * Uncomment this function call to make the config file publishable using the 'config' tag.
          */
-        // $this->publishes([
-        //     __DIR__.'/../../config/salt-laravel-project.php' => config_path('salt-laravel-project.php'),
-        // ], 'config');
+        $this->publishes([
+            __DIR__.'/../../config/salt-laravel-project.php' => config_path('project.php'),
+        ], 'project-config');
 
         /**
          * Routes
@@ -28,7 +28,8 @@ class SaltProjectServiceProvider extends ServiceProvider
          * Uncomment this function call to load the route files.
          * A web.php file has already been generated.
          */
-        // $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/../../routes/api.php');
+        $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
 
         /**
          * Translations
@@ -81,7 +82,7 @@ class SaltProjectServiceProvider extends ServiceProvider
          * Uncomment the first function call to load the migrations.
          * Uncomment the second function call to make the migrations publishable using the 'migrations' tags.
          */
-        // $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
         // $this->publishes([
         //     __DIR__.'/../../database/migrations/' => database_path('migrations')
         // ], 'migrations');
